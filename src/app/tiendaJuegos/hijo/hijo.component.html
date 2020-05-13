@@ -1,8 +1,63 @@
+
+<!--<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Formulario Juego</span>
+    </mat-toolbar-row>
+</mat-toolbar>-->
+
+
+<form [formGroup]='juegoForm' (ngSubmit)=submit()>
+    <div class="datosJuego">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Nombre</mat-label>
+                <input matInput type="text" formControlName="nombre">          
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Duracion aproximada</mat-label>
+                <input matInput type="int" formControlName="duracion">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+        <mat-label>Fecha estreno</mat-label>
+            <input matInput type="date" formControlName="fechaEstreno">           
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline">
+        <mat-label>Descripción</mat-label>
+            <textarea matInput formControlName="descripcion" rows="10" cols="50">Inserte descripción del juego</textarea>
+        </mat-form-field>
+        
+    </div>
+
+    <div formArrayName="generos">
+        <!--<h3>Generos</h3>-->
+
+        <mat-form-field appearance="outline">
+            <mat-label>Genero</mat-label>
+            <div *ngFor="let genero of generos.controls; let i = index" class="genero">
+                
+                    <input matInput type="text" [formControlName] ="i">
+            </div>
+        </mat-form-field>
+
+        <button type="button" mat-raised-button color="primary" (click)="addGenero()">Agregar genero</button>
+
+    </div>
+    
+
+    <button type="submit" mat-raised-button color="primary">Submit</button>
+
+</form>
+
+
+
 <p>Hijo works!</p>
 
 
 <!--Interpolación-->
-<p>Nombre Tienda: {{varHijo}}</p>
+<h2>Nombre Tienda:</h2> <h1>{{varHijo}}</h1>
 
 
 <!--Property Binding-->
@@ -15,52 +70,18 @@
 <!--Event Binding-->
 <div class="dataBinding">
     <h4>Event Binding</h4>
-    <button [disabled] (click)="eventBinding()">Renombrar Tienda</button>
+    <button [disabled] mat-raised-button (click)="eventBinding()" id="boton">Renombrar Tienda</button>
 </div>
 
 <div class="dataBinding">
-    <h4>Two Way Binding</h4>
-    <input type="text" [(ngModel)] ="juego">
+    <mat-form-field appearance="outline">
+        <mat-label>Two Way Binding</mat-label>
+    <!--<h4>Two Way Binding</h4>-->
+    <input matInput type="text" [(ngModel)] ="juego">
     <p>{{juego | uppercase}} </p>
+    </mat-form-field>
 </div>
 
-
-
-
-<form [formGroup]='juegoForm' (ngSubmit)=submit()>
-    <div class="datosJuego">
-        <label>Nombre
-            <input type="text" formControlName="nombre">
-        </label>
-        <label>Duracion aproximada
-            <input type="int" formControlName="duracion">
-        </label>
-        <label>Fecha estreno
-            <input type="date" formControlName="fechaEstreno">
-        </label>
-        <label>Descripción
-            <textarea formControlName="descripcion" rows="10" cols="50">Inserte descripción del juego</textarea>
-        </label>
-    </div>
-
-    <div formArrayName="generos">
-        <h3>Generos</h3>
-        <button type="button" (click)="addGenero()">Agregar genero</button>
-
-        <div *ngFor="let genero of generos.controls; let i = index" class="genero">
-            <label>
-                Genero <input type="text" [formControlName] ="i">
-            </label>
-        </div>
-
-    </div>
-    
-
-    <button type="submit" class="btn btn-primary">Submit</button>
-
-    <!--Propiedad del componente hijo con un valor enviado desde el componente padre-->
-    <input [formControl]="nombre">
-    <button type="button" (click)="siglasJuego(nombre)">Generar Siglas Juego</button>
-    
-
-</form>
+<!--Propiedad del componente hijo con un valor enviado desde el componente padre-->
+<input [formControl]="nombre">
+<button mat-raised-button type="button" color="primary"(click)="siglasJuego(nombre)">Generar Siglas Juego</button>

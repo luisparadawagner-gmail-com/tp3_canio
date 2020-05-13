@@ -1,0 +1,49 @@
+p, h1{
+    color: crimson;
+    text-align: center;
+}
+
+h2{
+    color: brown;
+    text-align: center;
+}
+
+mat-form-field{
+    display: block;
+    width: 100%;
+}
+
+input{
+    margin-bottom: 20px;
+}
+
+ form {
+    width  : 50%;
+    border: 1px solid #cccccc;
+    margin : 20px;
+    padding: 20px;
+
+    font-family: sans-serif; 
+    font-size: 18px; 
+    font-weight: 400; 
+    color: #141b38; 
+    background: #e4d3d3;
+  }
+
+  .dataBinding{
+
+    width  : 40%;
+    border: 1px solid #cccccc;
+    margin : 20px;
+    padding: 20px;
+
+    position: inherit;
+
+    border-color: black;
+    border-style: solid;
+    padding : absolute;
+    
+    background: #e4d3d3;
+    text-align: center;
+
+  }
