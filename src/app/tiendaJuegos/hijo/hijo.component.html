@@ -1,7 +1,30 @@
 <p>Hijo works!</p>
 
-<p>Variable Hijo: {{varHijo}}</p>
-<p>Variable Hijo usando Alias: {{varHijo2}}</p>
+
+<!--Interpolación-->
+<p>Nombre Tienda: {{varHijo}}</p>
+
+
+<!--Property Binding-->
+<div class="dataBinding">
+    <h4>Property Binding</h4>
+    <p>Imagen promocional del juego Resident Evil 2</p>
+    <img [src]="imagenJuego" [title]="nameImage" [width]="ancho" [height]="alto">
+</div>
+
+<!--Event Binding-->
+<div class="dataBinding">
+    <h4>Event Binding</h4>
+    <button [disabled] (click)="eventBinding()">Renombrar Tienda</button>
+</div>
+
+<div class="dataBinding">
+    <h4>Two Way Binding</h4>
+    <input type="text" [(ngModel)] ="juego">
+    <p>{{juego | uppercase}} </p>
+</div>
+
+
 
 
 <form [formGroup]='juegoForm' (ngSubmit)=submit()>
@@ -15,9 +38,6 @@
         <label>Fecha estreno
             <input type="date" formControlName="fechaEstreno">
         </label>
-       <!-- <label>Descripcion
-            <textarea formControlName="descripcion">
-        </label>-->
         <label>Descripción
             <textarea formControlName="descripcion" rows="10" cols="50">Inserte descripción del juego</textarea>
         </label>
@@ -36,9 +56,9 @@
     </div>
     
 
-    <button type="submit">Submit</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
 
-
+    <!--Propiedad del componente hijo con un valor enviado desde el componente padre-->
     <input [formControl]="nombre">
     <button type="button" (click)="siglasJuego(nombre)">Generar Siglas Juego</button>
     

@@ -6,9 +6,8 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: [ './padre.component.css' ]
 })
 export class PadreComponent implements OnInit {
-	varPadre: string = 'Vengo del componente padre';
-	varPadreAlias: string = 'Vengo del padre usando siglas en el componente hijo';
-
+	varPadre: string = 'El nombre de la tienda es Valkyrie';
+	
 	siglas: string;
 
 	constructor() {}
