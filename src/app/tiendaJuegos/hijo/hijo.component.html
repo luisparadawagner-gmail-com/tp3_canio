@@ -1,14 +1,14 @@
 
-<!--<mat-toolbar color="primary">
+<!--1er componente angular material no visto en clase-->
+<mat-toolbar color="primary">
     <mat-toolbar-row>
       <span>Formulario Juego</span>
     </mat-toolbar-row>
-</mat-toolbar>-->
+</mat-toolbar>
 
 
 <form [formGroup]='juegoForm' (ngSubmit)=submit()>
     <div class="datosJuego">
-
         <mat-form-field appearance="outline">
             <mat-label>Nombre</mat-label>
                 <input matInput type="text" formControlName="nombre">          
@@ -52,8 +52,14 @@
 </form>
 
 
-
-<p>Hijo works!</p>
+<!--2do componente angular material no visto en clase-->
+<p><mat-icon matBadge="15" matBadgeColor="warn">
+    Hijo works!         
+    </mat-icon>
+    <span class="cdk-visually-hidden">
+        Example with a home icon with overlaid badge showing the number 15
+    </span>
+</p>
 
 
 <!--Interpolación-->

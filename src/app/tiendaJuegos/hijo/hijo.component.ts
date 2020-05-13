@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
 
+import {DomSanitizer} from '@angular/platform-browser';
+import {MatIconRegistry} from '@angular/material/icon';
+
 
 @Component({
 	selector: 'app-hijo',
@@ -78,5 +81,8 @@ export class HijoComponent implements OnInit {
 
         this.juegoForm.patchValue({duracion: 60});
     }
+
+
+    
 
 }
