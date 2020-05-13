@@ -1,0 +1,46 @@
+<p>Hijo works!</p>
+
+<p>Variable Hijo: {{varHijo}}</p>
+<p>Variable Hijo usando Alias: {{varHijo2}}</p>
+
+
+<form [formGroup]='juegoForm' (ngSubmit)=submit()>
+    <div class="datosJuego">
+        <label>Nombre
+            <input type="text" formControlName="nombre">
+        </label>
+        <label>Duracion aproximada
+            <input type="int" formControlName="duracion">
+        </label>
+        <label>Fecha estreno
+            <input type="date" formControlName="fechaEstreno">
+        </label>
+       <!-- <label>Descripcion
+            <textarea formControlName="descripcion">
+        </label>-->
+        <label>Descripción
+            <textarea formControlName="descripcion" rows="10" cols="50">Inserte descripción del juego</textarea>
+        </label>
+    </div>
+
+    <div formArrayName="generos">
+        <h3>Generos</h3>
+        <button type="button" (click)="addGenero()">Agregar genero</button>
+
+        <div *ngFor="let genero of generos.controls; let i = index" class="genero">
+            <label>
+                Genero <input type="text" [formControlName] ="i">
+            </label>
+        </div>
+
+    </div>
+    
+
+    <button type="submit">Submit</button>
+
+
+    <input [formControl]="nombre">
+    <button type="button" (click)="siglasJuego(nombre)">Generar Siglas Juego</button>
+    
+
+</form>
